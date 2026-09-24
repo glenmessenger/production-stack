@@ -561,7 +561,7 @@ Enable it at install time, then opt in the namespace you deploy the
 stack into (inventory is namespace-opt-in by design — nothing is
 recorded without this label):
 
-    helm install vllm-stack . --set k8s-aibom.enabled=true
+    helm install llmstack . --set k8s-aibom.enabled=true
     kubectl label namespace <your-namespace> aibom.k8saibom.dev/enabled=true
 
 Each vLLM deployment then gets an `AIBOM` resource:

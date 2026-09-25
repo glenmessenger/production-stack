@@ -561,12 +561,16 @@ Enable it at install time, then opt in the namespace you deploy the
 stack into (inventory is namespace-opt-in by design — nothing is
 recorded without this label):
 
-    helm install llmstack . --set k8s-aibom.enabled=true
-    kubectl label namespace <your-namespace> aibom.k8saibom.dev/enabled=true
+```bash
+helm install llmstack . --set k8s-aibom.enabled=true
+kubectl label namespace <your-namespace> aibom.k8saibom.dev/enabled=true
+```
 
 Each vLLM deployment then gets an `AIBOM` resource:
 
-    kubectl get aiboms -n <your-namespace>
+```bash
+kubectl get aiboms -n <your-namespace>
+```
 
 The BOM records the served model (from `--model` args or `HF_MODEL_ID`,
 confidence `declared`) and the vLLM runtime (confidence `inferred`),
